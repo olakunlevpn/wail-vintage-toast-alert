@@ -1,8 +1,11 @@
 /**
- * Wail Notification System v1.0.0
+ * Wail Vintage Toast Alert v1.0.0
  * A vintage jQuery UI based notification library
  * 
- * Copyright (c) 2025 Chirp
+ * Copyright (c) 2025 Maylancer IT Limited
+ * @author Olakunlevpn
+ * @email olakunlevpn@gmail.com
+ * @github https://github.com/olakunlevpn/wail-vintage-toast-alert
  * Released under the MIT License
  * 
  * Requires: jQuery v1.8+ and jQuery UI v1.8+
