@@ -27,9 +27,9 @@ Include jQuery and jQuery UI, then add Wail Vintage Toast Alert:
 <script src="https://code.jquery.com/ui/1.8.24/jquery-ui.min.js"></script>
 
 <!-- Include Wail CSS and JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.0/css/wail-vintage.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.0/css/wail-vintage-icons.css">
-<script src="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.0/js/wail-vintage.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.1/css/wail-vintage.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.1/css/wail-vintage-icons.css">
+<script src="https://cdn.jsdelivr.net/gh/olakunlevpn/wail-vintage-toast-alert@1.0.1/js/wail-vintage.js"></script>
 ```
 
 ## Basic Usage
