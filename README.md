@@ -35,10 +35,19 @@ Include jQuery and jQuery UI, then add Wail Vintage Toast Alert:
 ## Basic Usage
 
 ```javascript
-// Default notification
+// Default notification with just message
 $.wail('This is a default wail notification');
 
-// With title and message
+// With message and title
+$.wail('This is a default wail notification', 'Notification');
+
+// With message, title, and options
+$.wail('This is a custom wail notification', 'Notification', {
+    type: 'success',
+    duration: 5000
+});
+
+// Original object syntax still works
 $.wail({
     title: 'Notification',
     message: 'This is a default wail notification'
@@ -62,9 +71,8 @@ $.wail.info('You have 3 new messages', 'Information');
 ### Event Callbacks
 
 ```javascript
-$.wail({
-    title: 'Event Example',
-    message: 'This wail has event callbacks',
+// With event callbacks - new syntax
+$.wail('This wail has event callbacks', 'Event Example', {
     type: 'info',
     onOpen: function() {
         console.log('Notification opened');
@@ -80,14 +88,23 @@ $.wail({
         console.log('Notification hovered');
     }
 });
+
+// With helper methods and options
+$.wail.info('This info notification has callbacks', 'Info with Events', {
+    onOpen: function() {
+        console.log('Info notification opened');
+    },
+    onClose: function() {
+        console.log('Info notification closed');
+    }
+});
 ```
 
 ### HTML Content
 
 ```javascript
-$.wail({
-    title: 'HTML Content',
-    message: '<strong>Bold text</strong> and <a href="#">a link</a>',
+// HTML content with new syntax
+$.wail('<strong>Bold text</strong> and <a href="#">a link</a>', 'HTML Content', {
     escapeHtml: false
 });
 ```
@@ -95,12 +112,11 @@ $.wail({
 ### All Configuration Options
 
 ```javascript
-$.wail({
-    title: 'Custom Wail',              // Title of the wail
-    message: 'Custom message',         // Message content
+// New syntax with message, title, and options
+$.wail('Custom message', 'Custom Wail', {
     type: 'success',                   // Type: default, success, error, warning, info
     duration: 5000,                    // Duration in milliseconds (0 for sticky)
-    position: 'bottom-right',          // Position: top-right, top-left, bottom-right, bottom-left
+    position: 'bottom-right',          // Position: top-right, top-left, bottom-right, bottom-left, top-center, bottom-center
     showHeader: true,                  // Whether to show the header section
     showClose: true,                   // Show close button
     width: 300,                        // Width in pixels

@@ -1,4 +1,16 @@
-/* Wail Toast Alert - Icon Styles */
+/**
+ * Wail Vintage Toast Alert v1.0.0
+ * A vintage jQuery UI based notification library
+ * 
+ * Copyright (c) 2025 Maylancer IT Limited
+ * @author Olakunlevpn
+ * @email olakunlevpn@gmail.com
+ * @github https://github.com/olakunlevpn/wail-vintage-toast-alert
+ * Released under the MIT License
+ * 
+ */
+ 
+ /* Wail Toast Alert - Icon Styles */
 .wail-title-icon {
     display: inline-block;
     width: 16px;

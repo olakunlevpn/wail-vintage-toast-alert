@@ -19,7 +19,7 @@
         message: '',                 // Notification message
         title: '',                   // Notification title (optional)
         type: 'default',             // Type: default, success, error, warning, info
-        position: 'bottom-right',    // Position: top-right, top-left, bottom-right, bottom-left
+        position: 'bottom-right',    // Position: top-right, top-left, bottom-right, bottom-left, top-center, bottom-center
         duration: 5000,              // Duration in milliseconds (0 for sticky)
         showHeader: true,            // Whether to show the header section
         showClose: true,             // Show close button
@@ -37,10 +37,11 @@
     
     // Container for notifications
     function getContainer(position, zIndex) {
-        var $container = $('#wail-container');
+        var containerId = 'wail-container-' + position;
+        var $container = $('#' + containerId);
         
         if ($container.length === 0) {
-            $container = $('<div id="wail-container"></div>')
+            $container = $('<div id="' + containerId + '" class="wail-container"></div>')
                 .css('z-index', zIndex)
                 .appendTo('body');
         }
@@ -48,6 +49,7 @@
         // Position the container
         var css = { position: 'fixed', width: 'auto' };
         
+        // Handle vertical position
         if (position.indexOf('top') !== -1) {
             css.top = '20px';
             css.bottom = 'auto';
@@ -56,12 +58,19 @@
             css.top = 'auto';
         }
         
+        // Handle horizontal position
         if (position.indexOf('left') !== -1) {
             css.left = '20px';
             css.right = 'auto';
-        } else {
+            css.transform = 'none';
+        } else if (position.indexOf('right') !== -1) {
             css.right = '20px';
             css.left = 'auto';
+            css.transform = 'none';
+        } else if (position.indexOf('center') !== -1) {
+            css.left = '50%';
+            css.right = 'auto';
+            css.transform = 'translateX(-50%)';
         }
         
         $container.css(css);
@@ -304,19 +313,39 @@
             // Remove the notification
             $(this).remove();
             
+            // Get the container
+            var $container = $(this).parent('.wail-container');
+            
             // Remove container if empty
-            if ($('#wail-container').children().length === 0) {
-                $('#wail-container').remove();
+            if ($container.length && $container.children().length === 0) {
+                $container.remove();
             }
         });
     }
     
-    // Main method
-    $.wail = function(options) {
-        if (typeof options === 'string') {
-            options = { message: options };
+    // Main wail function
+    $.wail = function(message, title, options) {
+        // Handle different parameter combinations
+        if (typeof message === 'object') {
+            // If first parameter is an object, treat it as options
+            options = message;
+        } else if (typeof title === 'object') {
+            // If message is string and title is object, treat title as options
+            options = title;
+            options.message = message;
+        } else if (typeof message === 'string') {
+            // If message is string and title is string or undefined
+            options = options || {};
+            options.message = message;
+            if (typeof title === 'string') {
+                options.title = title;
+            }
         }
         
+        // If options is still undefined, create an empty object
+        if (!options) {
+            options = {};
+        }
         // Store onClose callback for later use
         if (options.onClose) {
             var $wail = showWail(options);
@@ -327,42 +356,35 @@
         return showWail(options);
     };
     
-    // Shorthand methods
+    // Helper methods for different types
     $.wail.success = function(message, title, options) {
-        return $.wail($.extend({}, options, {
-            type: 'success',
-            message: message,
-            title: title
-        }));
+        options = options || {};
+        options.type = 'success';
+        return $.wail(message, title || 'Success', options);
     };
     
     $.wail.error = function(message, title, options) {
-        return $.wail($.extend({}, options, {
-            type: 'error',
-            message: message,
-            title: title
-        }));
+        options = options || {};
+        options.type = 'error';
+        return $.wail(message, title || 'Error', options);
     };
     
     $.wail.warning = function(message, title, options) {
-        return $.wail($.extend({}, options, {
-            type: 'warning',
-            message: message,
-            title: title
-        }));
+        options = options || {};
+        options.type = 'warning';
+        return $.wail(message, title || 'Warning', options);
     };
     
     $.wail.info = function(message, title, options) {
-        return $.wail($.extend({}, options, {
-            type: 'info',
-            message: message,
-            title: title
-        }));
+        options = options || {};
+        options.type = 'info';
+        return $.wail(message, title || 'Information', options);
     };
     
     // Clear all notifications
     $.wail.clear = function() {
-        $('#wail-container').remove();
+        // Remove all wail containers
+        $('.wail-container').remove();
     };
     
     // Version information
