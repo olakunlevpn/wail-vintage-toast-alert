@@ -2,7 +2,7 @@
 
 ![Wail Vintage Toast Alert](preview.png)
 
-Live Demo and documentation: [Check here](https://olakunlevpn.github.io/wail-vintage/)
+Live Demo and documentation: [Check here](https://wail-vintage.netlify.app/)
 
 A vintage-style jQuery notification library inspired by the classic UI design of the early 2000s. Wail Vintage Toast Alert brings back the nostalgic look and feel of web applications from that era while providing modern functionality.
 
