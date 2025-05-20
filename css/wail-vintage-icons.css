@@ -1,0 +1,47 @@
+/* Wail Toast Alert - Icon Styles */
+.wail-title-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 16px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+/* Default icon */
+.wail-default .wail-title-icon {
+    background: #f1f5f9;
+    color: #7b9ebd;
+    border: 1px solid #7b9ebd;
+}
+
+/* Success icon */
+.wail-success .wail-title-icon {
+    background: #e6f3db;
+    color: #4eb305;
+    border: 1px solid #4eb305;
+}
+
+/* Error icon */
+.wail-error .wail-title-icon {
+    background: #ffebeb;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
+
+/* Warning icon */
+.wail-warning .wail-title-icon {
+    background: #fef3e7;
+    color: #e69138;
+    border: 1px solid #e69138;
+}
+
+/* Info icon */
+.wail-info .wail-title-icon {
+    background: #e9f1f9;
+    color: #3d85c6;
+    border: 1px solid #3d85c6;
+}
