@@ -1,5 +1,5 @@
 /**
- * Wail Vintage Toast Alert v1.0.1
+ * Wail Vintage Toast Alert v1.0.2
  * A vintage jQuery UI based notification library
  * 
  * Copyright (c) 2025 Maylancer IT Limited
@@ -388,6 +388,6 @@
     };
     
     // Version information
-    $.wail.version = '1.0.1';
+    $.wail.version = '1.0.2';
     
 })(jQuery);
